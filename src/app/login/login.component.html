@@ -1,0 +1,28 @@
+<div class="loginContainer">
+  <div class="container">
+    <div class="row justify-content-md-center">
+        <div class="col-md-3">
+          <div class="avatarFrameOffline margtop15 margbotp15">
+            <img src="assets/img/generic_avatar.png" class="avatarImage img-fluid" alt="" srcset="">
+          </div>
+        </div>
+      </div>
+  </div>
+  <div class="row justify-content-md-center">
+      <div class="col-md-6">
+        <div class="center">
+          <h3>Login</h3>
+        </div>  
+        <p *ngIf="operation == 'register'">Do you have an acount? <a (click)="operation = 'login'">Login</a></p>
+        <p *ngIf="operation == 'login'">Don't you have an acount? <a (click)="operation = 'register'">Register</a></p>
+        <div class="boreredContainer">
+            <input class="form-control margtop15" type="email" type="text" placeholder="Email"/>
+            <input class="form-control margtop15" type="password" type="text" placeholder="Password"/>
+          </div>
+          <div class="center margtop15">
+              <a *ngIf="operation == 'login'" href="" class="btn btn-primary">Login</a>
+              <a *ngIf="operation == 'register'" href="" class="btn btn-primary">Register</a>
+          </div>
+      </div>
+  </div>
+</div>
