@@ -1,34 +1,47 @@
 <div id="homeContainer">
   <div id="whiteBorderGlassBox">
     <div class="homeHeadContainer">
-      <div class="row">
-        <div class="col-md-auto">
-          <div class="avatarFrameonline">
-              <img src="assets/img/generic_avatar.png" id="homeAvatarPicture" alt="" srcset="">
+      <div class="padding8px">
+          <div class="row">
+            <div class="col-md-auto">
+              <div class="avatarFrameonline">
+                  <img src="assets/img/generic_avatar.png" id="homeAvatarPicture" alt="" srcset="">
+              </div>
+            </div>
+            <div class="col">
+              <b>USERNAME</b>
+              <div>
+                <span>Online</span>
+                <br>
+                <span>What are you thinking?</span>
+              </div>
+            </div>
           </div>
         </div>
-        <div class="col">
-          <b>USERNAME</b>
-          <div>
-            <span>Online</span>
-            <br>
-            <span>What are you thinking?</span>
-          </div>
-        </div>
+    </div>    
+  </div>
+
+  <div class="whiteContainerPadded">
+    <div class="row">
+      <div class="col">
+          <input type="text" class="form-control" placeholder="search friend" [(ngModel)] = "query">
+      </div>
+      <div class="col-md-auto">
+        <img src="assets/img/logo_live_add.png" class="icon" alt="">
       </div>
     </div>
-  </div>
-  <input type="text" placeholder="search friend" [(ngModel)] = "query">
+    
+    <hr>
+    <b>Friend ({{users.length}} / {{users.length}})</b>
+    <div *ngFor="let user of users | search : query;" class="disblo margbo5">
+      <span routerLink="/conversation/{{user.uid}}">
+        <img src="assets/img/logo_live_online.png" class="icon">
+        <b>{{user.nick}}</b> - {{user.subnick || "No subnick"}} 
+        <small>{{user.email}}</small>
+      </span>
 
-  <br>
-  <b>Friend:</b>
-  <ng-container *ngFor="let user of users | search : query; let i = index">
-    <div>
-        <a routerLink="/conversation/{{user.uid}}">
-          {{user.uid}} : {{user.nick}} - {{user.email}}
-        </a>
     </div>
-  </ng-container>
+  </div>
 </div>
 
 
